@@ -21,19 +21,23 @@ Target DLL:      STLink\ST-LINKIII-KEIL_SWO.dll V2.0.14.0_KEIL
 Dialog DLL:      TCM.DLL V1.14.4.0
  
 <h2>Project:</h2>
-\\Mac\Home\Downloads\简易频率特性测试仪\USER\PWM.uvprojx
-Project File Date:  05/17/2018
+Z:\Downloads\简易频率特性测试仪-1\USER\PWM.uvprojx
+Project File Date:  05/19/2018
 
 <h2>Output:</h2>
 Build target 'PWM'
-compiling AD9959.c...
+compiling main.c...
+compiling task.c...
+..\SYSTEM\tasks\task.c(149): warning:  #186-D: pointless comparison of unsigned integer with zero
+        if(dB_dou>=-40 && dB_dou<=10 && n>=0 && n<=225)//鎺у埗鏁版嵁鍦ㄥ悎鐞嗚寖鍥?                                     ^
+..\SYSTEM\tasks\task.c: 1 warning, 0 errors
 linking...
-Program Size: Code=7096 RO-data=424 RW-data=120 ZI-data=1832  
+Program Size: Code=22296 RO-data=1192 RW-data=156 ZI-data=9052  
 FromELF: creating hex file...
-"..\OBJ\PWM.axf" - 0 Error(s), 0 Warning(s).
+"..\OBJ\PWM.axf" - 0 Error(s), 1 Warning(s).
 
 <h2>Collection of Component include folders:</h2>
-  \\Mac\Home\Downloads\简易频率特性测试仪\USER\RTE
+  Z:\Downloads\简易频率特性测试仪-1\USER\RTE
   C:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\1.0.8\Device\Include
 
 <h2>Collection of Component Files used:</h2>

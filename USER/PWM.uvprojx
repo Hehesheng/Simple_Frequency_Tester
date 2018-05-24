@@ -365,7 +365,7 @@
               <MiscControls></MiscControls>
               <Define>STM32F40_41xxx,USE_STDPERIPH_DRIVER</Define>
               <Undefine></Undefine>
-              <IncludePath>..\CORE;..\SYSTEM\delay;..\SYSTEM\sys;..\SYSTEM\usart;..\USER;..\HARDWARE\PWM;..\FWLIB\inc;..\HARDWARE\KEY;..\HARDWARE\ADC;..\FWLIB\src;..\HARDWARE\GPIO;..\HARDWARE\ads1115;..\HARDWARE\IIC;..\HARDWARE\AD9959</IncludePath>
+              <IncludePath>..\CORE;..\SYSTEM\delay;..\SYSTEM\sys;..\SYSTEM\usart;..\USER;..\HARDWARE\PWM;..\FWLIB\inc;..\HARDWARE\KEY;..\HARDWARE\ADC;..\FWLIB\src;..\HARDWARE\GPIO;..\HARDWARE\ads1115;..\HARDWARE\IIC;..\HARDWARE\AD9959;..\SYSTEM\tasks</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -482,6 +482,11 @@
               <FileName>usart.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\SYSTEM\usart\usart.c</FilePath>
+            </File>
+            <File>
+              <FileName>task.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\SYSTEM\tasks\task.c</FilePath>
             </File>
           </Files>
         </Group>

@@ -38,11 +38,10 @@
 ..\obj\main.o: ..\SYSTEM\delay\delay.h
 ..\obj\main.o: ..\SYSTEM\usart\usart.h
 ..\obj\main.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
-..\obj\main.o: ..\HARDWARE\PWM\pwm.h
-..\obj\main.o: ..\HARDWARE\KEY\key.h
-..\obj\main.o: ..\HARDWARE\ADC\adc.h
 ..\obj\main.o: ..\HARDWARE\GPIO\GPIO.h
 ..\obj\main.o: ..\HARDWARE\ads1115\ads1115.h
 ..\obj\main.o: ..\HARDWARE\IIC\myiic.h
 ..\obj\main.o: ..\HARDWARE\IIC\myiic.h
 ..\obj\main.o: ..\HARDWARE\AD9959\AD9959.h
+..\obj\main.o: ..\SYSTEM\tasks\task.h
+..\obj\main.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\math.h

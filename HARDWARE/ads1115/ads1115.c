@@ -6,8 +6,8 @@
 /************************************
  *   ADDR---> GND
  *   VDD ---> 3.3V
- *   SCL ---> PA2
- *   SDA ---> PA3
+ *   SCL ---> PE9
+ *   SDA ---> PE10
  *   AINp=AIN0, AINn=GND
  ************************************/
 
@@ -16,22 +16,22 @@
 
 //注意更改时钟使能！！！！!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
-#define SCL_SEL         RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOA, ENABLE);			//时钟线时钟使能
-#define SCL_DDR_OUT  	 	PAout(2)	//设置时钟线为输出模式
+#define SCL_SEL         RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOB, ENABLE);			//时钟线时钟使能
+#define SCL_DDR_OUT  	 	PBout(8)	//设置时钟线为输出模式
 
 
-#define SCL_H    	 			GPIO_SetBits(GPIOA,GPIO_Pin_2)			//时钟线拉高
-#define SCL_L	 	   			GPIO_ResetBits(GPIOA,GPIO_Pin_2)						//时钟线拉低
+#define SCL_H    	 			GPIO_SetBits(GPIOB,GPIO_Pin_8)			//时钟线拉高
+#define SCL_L	 	   			GPIO_ResetBits(GPIOB,GPIO_Pin_8)						//时钟线拉低
 
 
-#define SDA_SEL         RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOA, ENABLE);			//数据时钟使能
-#define SDA_DDR_OUT   	PAout(3)		//数据线设置为输出
-#define SDA_DDR_IN      PAin(3)		//数据线设置为读入
+#define SDA_SEL         RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOB, ENABLE);			//数据时钟使能
+#define SDA_DDR_OUT   	PBout(9)		//数据线设置为输出
+#define SDA_DDR_IN      PBin(9)		//数据线设置为读入
 
-#define SDA_OUT 	 			GPIO_ReadOutputDataBit(GPIOA, GPIO_Pin_3)									//读取输出值	
-#define SDA_IN         	GPIO_ReadInputDataBit(GPIOA, GPIO_Pin_3);									//读取输入值
-#define SDA_H    	 			GPIO_SetBits(GPIOA,GPIO_Pin_3)			//数据线拉高
-#define SDA_L	  	 			GPIO_ResetBits(GPIOA,GPIO_Pin_3)		//数据线拉低
+#define SDA_OUT 	 			GPIO_ReadOutputDataBit(GPIOB, GPIO_Pin_9)									//读取输出值	
+#define SDA_IN         	GPIO_ReadInputDataBit(GPIOB, GPIO_Pin_9);									//读取输入值
+#define SDA_H    	 			GPIO_SetBits(GPIOB,GPIO_Pin_9)			//数据线拉高
+#define SDA_L	  	 			GPIO_ResetBits(GPIOB,GPIO_Pin_9)		//数据线拉低
 
 #define TRUE   1
 #define FALSE  0

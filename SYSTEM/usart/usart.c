@@ -117,7 +117,9 @@ void uart_init(u32 bound){
 	
 }
 
-
+/*
+ *USART_RX_BUF的第一位是完成接受的标识符(0xff),第二位时开始接收的标志符(0x00)
+ */
 void USART1_IRQHandler(void)                	//串口1中断服务程序
 {
 	u8 Res;
@@ -126,27 +128,24 @@ void USART1_IRQHandler(void)                	//串口1中断服务程序
 #endif
 	if(USART_GetITStatus(USART1, USART_IT_RXNE) != RESET)  //接收中断(接收到的数据必须是0x0d 0x0a结尾)
 	{
-		Res =USART_ReceiveData(USART1);//(USART1->DR);	//读取接收到的数据
-		
-		if((USART_RX_STA&0x8000)==0)//接收未完成
+		Res = USART_ReceiveData(USART1);
+		if(USART_RX_STA & 0x4000)//接收到了开始信息
 		{
-			if(USART_RX_STA&0x4000)//接收到了0x0d
+			if(Res == 0xff)//接收到了最后一位
 			{
-				if(Res!=0x0a)USART_RX_STA=0;//接收错误,重新开始
-				else USART_RX_STA|=0x8000;	//接收完成了 
+				USART_RX_STA |= 0x8000;
 			}
-			else //还没收到0X0D
-			{	
-				if(Res==0x0d)USART_RX_STA|=0x4000;
-				else
-				{
-					USART_RX_BUF[USART_RX_STA&0X3FFF]=Res ;
-					USART_RX_STA++;
-					if(USART_RX_STA>(USART_REC_LEN-1))USART_RX_STA=0;//接收数据错误,重新开始接收	  
-				}		 
+			else
+			{
+				USART_RX_BUF[(u8)USART_RX_STA] = Res;//一般情况接收数据
+				USART_RX_STA++;
 			}
-		}   		 
-  } 
+		}
+		else if(Res == 0x00)//接受到了0x00, 有数据进入
+		{
+			USART_RX_STA |= 0x4000;
+		}
+	} 
 #if SYSTEM_SUPPORT_OS 	//如果SYSTEM_SUPPORT_OS为真，则需要支持OS.
 	OSIntExit();  											 
 #endif
@@ -155,7 +154,7 @@ void USART1_IRQHandler(void)                	//串口1中断服务程序
 
  
 
-#if 	1			//如果使用了串口屏
+#if 	0			//如果使用了串口屏
 
 //字节发送函数
 void HMISendb(u8 k)		         

@@ -89,11 +89,11 @@ extern float VIN_DAS; //输入的电压值
 extern unsigned char  t_DAS; 
 extern int  Format[5];  //转换的数字量转换成十进制
 
-#define SCL             GPIOA
-#define SCL_RCC					2
-#define SCL_P						2
-#define SDA             GPIOA
-#define SDA_RCC         2
-#define SDA_P           3
+#define SCL             GPIOB
+#define SCL_RCC					8
+#define SCL_P						8
+#define SDA             GPIOB
+#define SDA_RCC         8
+#define SDA_P           9
 
 #endif /* 1115_H_ */

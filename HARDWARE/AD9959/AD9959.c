@@ -20,9 +20,9 @@ u8 RDW_DATA[4] = {0x00,0x00,0x00,0x00};//default Value = 0x--------
                                   
 u8 FDW_DATA[4] = {0x00,0x00,0x00,0x00};//default Value = 0x--------
 
-u32 SinFre[4] = {10000, 10000, 10000, 10000};
+u32 SinFre[4] = {10000, 10000, 1000000, 100000};
 u32 SinAmp[4] = {1023, 1023, 1023, 1023};
-u32 SinPhr[4] = {0, 4095, 4095*3, 4095*2};
+u32 SinPhr[4] = {0, 0, 90, 0};
 
 /**
   * @brief  初始化io口和reset设备
@@ -67,8 +67,8 @@ void Init_AD9959(void)
   // WriteData_AD9959(FDW_ADD,4,FDW_DATA,1);
    //写入初始频率
   Write_frequence(3,SinFre[3]);
-  Write_frequence(0,SinFre[0]); 
-  Write_frequence(1,SinFre[1]);
+  //Write_frequence(0,SinFre[0]); 
+  //Write_frequence(1,SinFre[1]);
   Write_frequence(2,SinFre[2]);
 
   ////  Write_frequence(3,50);
@@ -77,13 +77,13 @@ void Init_AD9959(void)
   ////  Write_frequence(2,50);
 
   Write_Phase(3, SinPhr[3]);
-  Write_Phase(0, SinPhr[0]);
-  Write_Phase(1, SinPhr[1]);
+  //Write_Phase(0, SinPhr[0]);
+  //Write_Phase(1, SinPhr[1]);
   Write_Phase(2, SinPhr[2]);
 
   Write_Amplitude(3, SinAmp[3]);
-  Write_Amplitude(0, SinAmp[0]);
-  Write_Amplitude(1, SinAmp[1]);
+  //Write_Amplitude(0, SinAmp[0]);
+  //Write_Amplitude(1, SinAmp[1]);
   Write_Amplitude(2, SinAmp[2]);
 }
 
@@ -284,7 +284,7 @@ void Write_Amplitude(u8 Channel, u16 Ampli)
 void Write_Phase(u8 Channel,u16 Phase)
 {
   u16 P_temp=0;
-  P_temp=(u16)Phase;
+  P_temp=(u16)((float)Phase/360*16384);
   CPOW0_DATA[1]=(u8)P_temp;
   CPOW0_DATA[0]=(u8)(P_temp>>8);
   if(Channel==0)
@@ -308,9 +308,6 @@ void Write_Phase(u8 Channel,u16 Phase)
     WriteData_AD9959(CPOW0_ADD,2,CPOW0_DATA,1);
   }
 }  
-
-
-
 
 
 

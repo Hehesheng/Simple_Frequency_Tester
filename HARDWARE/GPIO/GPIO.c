@@ -6,14 +6,22 @@
 
 /////////////////////////////////////////////////
 //按自己的需求定义，示例如下：
-#define   GPIOA_NEED			1
-#define 	GPIOA_Pin 			GPIO_Pin_2|GPIO_Pin_3						//定义使用的引脚
-#define	  GPIOA_Mode 			GPIO_Mode_OUT						//定义端口模式：通用输出、复位状态的输入、复用功能模式、模拟输入模式
-#define   GPIOA_OType			GPIO_OType_PP						//定义输出类型：推挽模式（pp）、开漏（od） 
-#define   GPIOA_Speed			GPIO_Speed_100MHz				//定义输出速度（2/25/50/100）
-#define		GPIOA_PuPd			GPIO_PuPd_UP						//定义IO口的上下拉：（NOPULL、UP、DOWN）
+//#define   GPIOA_NEED			1
+//#define 	GPIOA_Pin 			GPIO_Pin_2|GPIO_Pin_3						//定义使用的引脚
+//#define	  GPIOA_Mode 			GPIO_Mode_OUT						//定义端口模式：通用输出、复位状态的输入、复用功能模式、模拟输入模式
+//#define   GPIOA_OType			GPIO_OType_PP						//定义输出类型：推挽模式（pp）、开漏（od） 
+//#define   GPIOA_Speed			GPIO_Speed_100MHz				//定义输出速度（2/25/50/100）
+//#define		GPIOA_PuPd			GPIO_PuPd_UP						//定义IO口的上下拉：（NOPULL、UP、DOWN）
 /////////////////////////////////////////////////
-
+/////////////////////////////////////////////////
+//按自己的需求定义，示例如下：
+#define   GPIOB_NEED			1
+#define 	GPIOB_Pin 			GPIO_Pin_8|GPIO_Pin_9						//定义使用的引脚
+#define	  GPIOB_Mode 			GPIO_Mode_OUT						//定义端口模式：通用输出、复位状态的输入、复用功能模式、模拟输入模式
+#define   GPIOB_OType			GPIO_OType_PP						//定义输出类型：推挽模式（pp）、开漏（od） 
+#define   GPIOB_Speed			GPIO_Speed_100MHz				//定义输出速度（2/25/50/100）
+#define		GPIOB_PuPd			GPIO_PuPd_UP						//定义IO口的上下拉：（NOPULL、UP、DOWN）
+/////////////////////////////////////////////////
 void GPIO_UNIVERSAL_SET (void)
 {
 //	GPIO_InitTypeDef	GPIOA_InitStructure
